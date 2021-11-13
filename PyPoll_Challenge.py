@@ -9,7 +9,6 @@ import os
 file_to_load = os.path.join("Resources", "election_results.csv")
 # Add a variable to save the file to a path.
 file_to_save = os.path.join("analysis", "election_results.txt")
-
 # Initialize a total vote counter.
 total_votes = 0
 
@@ -97,13 +96,13 @@ with open(file_to_save, "w") as txt_file:
         # 6c: Calculate the percentage of votes for the county.
         Counties_vote_percentage = float(County_vote) / float(total_votes) * 100
         Counties_results = (
-            f"{counties_name}: {Counties_vote_percentage:.1f}% ({County_vote:,})")
+            f"{counties_name}: {Counties_vote_percentage:.1f}% ({County_vote:,})\n")
          # 6d: Print the county results to the terminal.
         print(Counties_results)
 
         
          # 6e: Save the county votes to a text file.
-        txt_file.write(election_results)
+        txt_file.write(Counties_results)
          # 6f: Write an if statement to determine the winning county and get its vote count.
         if(County_vote > County_vote_turnout) and (Counties_vote_percentage > Counties_winning_percentage):
             County_vote_turnout = County_vote
@@ -127,7 +126,7 @@ with open(file_to_save, "w") as txt_file:
         votes = candidate_votes.get(candidate_name)
         vote_percentage = float(votes) / float(total_votes) * 100
         candidate_results = (
-            f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})")
+            f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
             
         # Print each candidate's voter count and percentage to the
         # terminal.
