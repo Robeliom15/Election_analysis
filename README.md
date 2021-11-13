@@ -68,5 +68,6 @@ Diana won the election with a grand total of 272,892 votes which was 73.8% of th
 
 ## Election Audit Summary
 
+This script can be modified for any election since the code itself is not that complex and could be changed to fit the needs of future elections. The county code was added later and mimicked the candidate code very closely. For example, in the future, you can add code that can be used to get information for cities within the counties. Being able to see how differently each city votes can help with future elections and how to prepare for them. Additionally, you modify the data to see demographic data, to get a better understanding of the people who are voting. Understanding what the voter thinks can also help with future elections. The only other thing is that for future modification more data is needed. 
 
 
