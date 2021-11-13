@@ -10,10 +10,29 @@ I previously made code that focused on information for candidates that went into
 ### Election Audit Results
 
 - How many votes were cast in this congressional election?
+Through the image at the bottom of the section, we can see that a total of 369,711 votes were cast during this congressional election. We got this information from the code below.
 
 - Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.
+The Arapahoe and Jefferson counties have very small county turnouts compared to Denver. Denver has 306,055 votes (82.8%), Jefferson has 38,855 votes (10.5%), and Arapahoe has 24,801 (6.7%) votes.
+To get this information, I used this code:
+ ```
+    for counties_name in counties_votes:
+        County_vote = counties_votes.get(counties_name)
+        Counties_vote_percentage = float(County_vote) / float(total_votes) * 100
+        Counties_results = (
+            f"{counties_name}: {Counties_vote_percentage:.1f}% ({County_vote:,})\n"
+        print(Counties_results)
+
+        txt_file.write(Counties_results)
+        if(County_vote > County_vote_turnout) and (Counties_vote_percentage > Counties_winning_percentage):
+            County_vote_turnout = County_vote
+            winning_county = counties_name
+            Counties_winning_percentage = Counties_vote_percentage
+```
+
 
 - Which county had the largest number of votes?
+According to the picture below, Denver has the largest voter turnout
 
 - Provide a breakdown of the number of votes and the percentage of the total votes each candidate received.
 
